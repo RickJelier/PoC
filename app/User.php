@@ -9,9 +9,9 @@ class User extends Authenticatable
 {
     use Notifiable;
     
-    public function tasks()
+    public function appointments()
     {
-    	return $this->hasMany(Task::class);
+    	return $this->hasMany(Appointment::class);
     }
 
     /**

@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', 'TasksController@index');
+Route::get('/', 'AppointmentController@index');
 Route::get('/phpinfo', 'HomeController@info');
 
 Auth::routes();
 
-Route::get('/task','TasksController@add');
-Route::post('/task','TasksController@create');
+Route::get('/appointment','AppointmentController@add');
+Route::post('/appointment','AppointmentController@create');
 
-Route::get('/task/{task}','TasksController@edit');
-Route::post('/task/{task}','TasksController@update');
+Route::get('/appointment/{appointment}','AppointmentController@edit');
+Route::post('/appointment/{appointment}','AppointmentController@update');

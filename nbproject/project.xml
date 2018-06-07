@@ -5,5 +5,13 @@
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
             <name>todo</name>
         </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>app</word>
+            <word>Auth</word>
+            <word>endforeach</word>
+            <word>endif</word>
+            <word>endsection</word>
+            <word>foreach</word>
+        </spellchecker-wordlist>
     </configuration>
 </project>
