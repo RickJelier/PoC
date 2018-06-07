@@ -13,6 +13,7 @@
 
 Route::get('/', 'AppointmentController@index');
 Route::get('/phpinfo', 'HomeController@info');
+Route::post('/poc/api/appointment/create', 'AppointmentController@post_create');
 
 Auth::routes();
 
