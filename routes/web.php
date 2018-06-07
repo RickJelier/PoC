@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'TasksController@index');
+Route::get('/phpinfo', 'HomeController@info');
 
 Auth::routes();
 
