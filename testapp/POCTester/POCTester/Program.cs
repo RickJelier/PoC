@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,31 +19,32 @@ namespace POCTester
             }
             catch (IndexOutOfRangeException ex)
             {
-                //Count = 1;
-
-                Count = 100;
+                Count = 1;
             }
             finally
             {
-                performTests(Count);
+                Console.WriteLine($"Starting {Count} tests");
+                PerformTests(Count);
 
             }
             Console.ReadKey();
         }
 
-        private static void performTests(int Amount)
+        private static void PerformTests(int Amount)
         {
             List<Task<IRestResponse>> Resposes = new List<Task<IRestResponse>>();
             int i = 0;
             while (Amount > i || Amount == -1)
             {
-                if (Console.In.Peek() != 0 && Console.ReadKey(true).Key == ConsoleKey.Escape)
+                if (Console.KeyAvailable)
                 {
-                    break;
+                    if (Console.ReadKey(true).Key == ConsoleKey.Escape)
+                    {
+                        break;
+                    }
                 }
 
                 Resposes.Add(DoTest());
-
 
                 i++;
             }
@@ -54,11 +55,10 @@ namespace POCTester
             List<Task<IRestResponse>> FailedReqs = Resposes.Where(x => !x.Result.IsSuccessful).ToList();
 
 
-            Console.WriteLine($" {FailedReqs.Count} / {Resposes.Count} tests failed" );
+            Console.WriteLine($" {FailedReqs.Count} / {Resposes.Count} tests failed");
 
 
 
-            Console.WriteLine($"Done {i} test(s)");
         }
 
         private async static Task<IRestResponse> DoTest()
