@@ -46,6 +46,8 @@ class AppointmentController extends Controller
         $appointment->user_id = 2;
         $appointment->save();
         
+        \LogActivity::addToLog('Added appointment with title ' . $request->title);
+        
         echo 'success!';
     }
 
@@ -76,6 +78,8 @@ class AppointmentController extends Controller
         $appointment->user_id = Auth::id();
         $appointment->save();
 
+        \LogActivity::addToLog('Added appointment with title ' . $request->title);
+        
         return redirect('/');
     }
 
@@ -116,6 +120,10 @@ class AppointmentController extends Controller
             $appointment->kilometers = $request->kilometers;
             $appointment->description = $request->description;
             $appointment->save();
+            
+            
+            \LogActivity::addToLog('Updated appointment with title ' . $request->title);
+            
             return redirect('/');
         }
     }
