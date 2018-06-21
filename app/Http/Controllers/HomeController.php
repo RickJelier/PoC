@@ -31,4 +31,15 @@ class HomeController extends Controller
         $info = phpinfo();
         return view('phpinfo', compact('info'));
     }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function logActivity()
+    {
+        $logs = \LogActivity::logActivityLists();
+        return view('logActivity',compact('logs'));
+    }
 }

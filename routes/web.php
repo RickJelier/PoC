@@ -22,3 +22,5 @@ Route::post('/appointment','AppointmentController@create');
 
 Route::get('/appointment/{appointment}','AppointmentController@edit');
 Route::post('/appointment/{appointment}','AppointmentController@update');
+
+Route::get('logs', 'HomeController@logActivity');
